@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:3001"}, allowedHeaders = "*")
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:3001", "http://localhost:8081"}, allowedHeaders = "*")
 @RestController
 @RequestMapping("/api")
 public class ImageTagPayloadController {
@@ -14,7 +14,6 @@ public class ImageTagPayloadController {
     @PostMapping("/process-image-tags")
     public ResponseEntity<String> processImageTags(@RequestBody ImageTagPayloadModel imageTagPayload) {
         try {
-            // Process the tags using ImageTagPayloadService
             String result = ImageTagPayloadService.processImageTags(imageTagPayload);
 
             return ResponseEntity.ok(result);
