@@ -1,0 +1,9 @@
+services:
+  photo-catalog-lambda:
+    build: .
+    image: photo-catalog-lambda:latest
+    container_name: photo-catalog-lambda
+
+    ports:
+      - "8082:8082"
+    network_mode: bridge
